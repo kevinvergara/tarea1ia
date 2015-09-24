@@ -50,8 +50,23 @@ public class Matriz {
         return matriz;
     } 
 
-    public boolean matrizSolucion(String [][] matriz,String [] colores){
+    public boolean matrizSolucion(String [][] matriz,String [] colors){
+        //le enviamos la matriz y los colores
+        //si retorna true solucion, si es false no es solucion
         
+        for(int i=0 ; i<matriz.length ; i++){//primero ver que no tenga espacios vacios
+            for(int j=0 ; j<matriz.length ; j++){
+                if(matriz[i][j].equals(" ")){
+                    return false;
+                }
+            }
+        }
+        
+        for(int i=0 ; i<matriz.length ; i++){//verificar que qe todos los colores tengan mas qe 1
+            for(int j=0 ; j<matriz.length ; j++){
+                
+            }
+        }
         
         return true;
     }

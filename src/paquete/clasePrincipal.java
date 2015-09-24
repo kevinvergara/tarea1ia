@@ -15,10 +15,6 @@ public class clasePrincipal {
         
         Nodo raiz = new Nodo(matrizAuxiliar.getColores(),aux,matrizInicial,1);
         
-        for (int i=0;i < raiz.getColores().length;i++){
-            System.out.println(raiz.getColores()[i]);
-        }
-        System.out.print("\n \n");
         
         for(int i=0;i < matrizInicial.length ; i++){
             for(int j = 0; j < matrizInicial.length ; j++){
@@ -27,7 +23,7 @@ public class clasePrincipal {
             System.out.println();
         }
     
-    
+        matrizAuxiliar.matrizSolucion(raiz.getMatriz(),raiz.getColores());
     
     
     
