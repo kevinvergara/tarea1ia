@@ -54,18 +54,22 @@ public class Matriz {
         //le enviamos la matriz y los colores
         //si retorna true solucion, si es false no es solucion
         int [] nColors = new int [colors.length];
-        
-        for(int i=0 ; i<matriz.length ; i++){//primero ver que no tenga espacios vacios
+        for(int i = 0;i<colors.length;i++){//inicilizar el vector contador
+            nColors[i]=0;
+        }
+        //-------------------
+      /*  for(int i=0 ; i<matriz.length ; i++){//primero ver que no tenga espacios vacios
             for(int j=0 ; j<matriz.length ; j++){
                 if(matriz[i][j].equals(" ")){
                     return false;
                 }
             }
-        }
-        
-        for(int i=0 ; i<matriz.length ; i++){//verificar que qe todos los colores tengan mas qe 1
+        }*/
+        //-------------------
+        /*for(int i=0 ; i<matriz.length ; i++){//verificar que qe todos los colores tengan mas qe 1
             for(int j=0 ; j<matriz.length ; j++){
                 
+                        
                 for(int x = 0 ; x<colors.length ; x++){
                     if(matriz[i][j].equals(colors[x])){
                         nColors[x]++;
@@ -75,8 +79,15 @@ public class Matriz {
             }
         }
         for(int x = 0 ; x<colors.length ; x++){
-            System.out.println(nColors[x]);
-        }
+            if(nColors[x]!=2){
+                return false;
+            }
+        } */
+        //---------------------
+        
+        
+        
+        
         
         return true;
     }
