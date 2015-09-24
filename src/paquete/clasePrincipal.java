@@ -1,11 +1,15 @@
 
 package paquete;
 
+import java.io.IOException;
+
 public class clasePrincipal {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
-        System.out.print("chupla");
+        Matriz aux = new Matriz();
+        
+        aux.cargarMatriz();
     
     
     
