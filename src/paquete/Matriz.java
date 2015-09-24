@@ -53,6 +53,7 @@ public class Matriz {
     public boolean matrizSolucion(String [][] matriz,String [] colors){
         //le enviamos la matriz y los colores
         //si retorna true solucion, si es false no es solucion
+        int [] nColors = new int [colors.length];
         
         for(int i=0 ; i<matriz.length ; i++){//primero ver que no tenga espacios vacios
             for(int j=0 ; j<matriz.length ; j++){
@@ -65,7 +66,16 @@ public class Matriz {
         for(int i=0 ; i<matriz.length ; i++){//verificar que qe todos los colores tengan mas qe 1
             for(int j=0 ; j<matriz.length ; j++){
                 
+                for(int x = 0 ; x<colors.length ; x++){
+                    if(matriz[i][j].equals(colors[x])){
+                        nColors[x]++;
+                    }
+                }
+                
             }
+        }
+        for(int x = 0 ; x<colors.length ; x++){
+            System.out.println(nColors[x]);
         }
         
         return true;
