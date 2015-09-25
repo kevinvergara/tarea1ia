@@ -1,9 +1,11 @@
-5
-5
-vryan
+7
+7
+vcnryap
 ---------
-r 0 v 2 y
-1 0 a 2 n
-1 0 3 2 4
-1 v 3 y 4 
-1 r a n 4
+v v v v v c c
+v c c c c c n
+v n n n n n n
+v n y r r r r
+v n y a a a a
+v n y p p p p
+v v v v v v p
