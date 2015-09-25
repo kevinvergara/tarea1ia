@@ -67,15 +67,12 @@ public class Matriz {
         }*/
         //-------------------
         /*for(int i=0 ; i<matriz.length ; i++){//verificar que qe todos los colores tengan mas qe 1
-            for(int j=0 ; j<matriz.length ; j++){
-                
-                        
+            for(int j=0 ; j<matriz.length ; j++){    
                 for(int x = 0 ; x<colors.length ; x++){
                     if(matriz[i][j].equals(colors[x])){
                         nColors[x]++;
                     }
-                }
-                
+                }  
             }
         }
         for(int x = 0 ; x<colors.length ; x++){
@@ -84,13 +81,34 @@ public class Matriz {
             }
         } */
         //---------------------
+        //ver qe cada color tengo uno de si mismo a su lado
+        for(int i = 0;i<colors.length;i++){//inicilizar el vector contador
+            if(!contadorColorLado(i,colors,matriz)) return false;
+        }
+        //---------------------
         
+        return true;
+    }
+    
+    public boolean contadorColorLado(int index,String [] color,String [][] matriz){
         
+        for(int i=0 ; i<matriz.length ; i++){//primero ver que no tenga espacios vacios
+            for(int j=0 ; j<matriz.length ; j++){
+                if(matriz[i][j].equals(Integer.toString(index)) || matriz[i][j].equals(color[index])){
+                //arriba
+                    
+                
+                
+                
+                }
+            }
+        }
         
         
         
         return true;
     }
+    
     
     public String [] getColores(String color) {
         String [] vector = new String [nColores];
