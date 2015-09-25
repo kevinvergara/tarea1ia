@@ -83,7 +83,8 @@ public class Matriz {
         //---------------------
         //ver qe cada color tengo uno de si mismo a su lado
         for(int i = 0;i<colors.length;i++){//inicilizar el vector contador
-            if(!contadorColorLado(i,colors,matriz)) return false;
+            contadorColorLado(i,colors,matriz);
+            //if(!contadorColorLado(i,colors,matriz)) return false;
         }
         //---------------------
         
@@ -91,21 +92,44 @@ public class Matriz {
     }
     
     public boolean contadorColorLado(int index,String [] color,String [][] matriz){
-        
+        int contador = 0;
+        System.out.println("color: "+color[index]);
         for(int i=0 ; i<matriz.length ; i++){//primero ver que no tenga espacios vacios
             for(int j=0 ; j<matriz.length ; j++){
+                contador=0;
                 if(matriz[i][j].equals(Integer.toString(index)) || matriz[i][j].equals(color[index])){
                 //arriba
-                    
-                
-                
-                
+                    System.out.println("("+i+","+j+")");
+                    if((i-1) > 0){
+                        if(matriz[i-1][j].equals(Integer.toString(index)) || matriz[i-1][j].equals(color[index])){
+                            contador++;
+                            System.out.println("arriba");
+                        }
+                    }
+                    if((i+1) < matriz.length){//abajo
+                        if(matriz[i+1][j].equals(Integer.toString(index)) || matriz[i+1][j].equals(color[index])){
+                            contador++;
+                            System.out.println("abajo");
+                        }
+                    }
+                    if((j-1) > 0){//izquierda
+                        if(matriz[i][j-1].equals(Integer.toString(index)) || matriz[i][j-1].equals(color[index])){
+                            contador++;
+                            System.out.println("izq");
+                        }
+                    }
+                    if((j+1) < matriz.length){//derecha
+                        if(matriz[i][j+1].equals(Integer.toString(index)) || matriz[i][j+1].equals(color[index])){
+                            contador++;
+                            System.out.println("derecha");
+                        }
+                    } 
+                }
+                if(contador==0){
+                    //return false;
                 }
             }
         }
-        
-        
-        
         return true;
     }
     
