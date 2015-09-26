@@ -57,9 +57,6 @@ public class Matriz {
         for(int i = 0;i<colors.length;i++){//inicilizar el vector contador
             nColors[i]=0;
         }
-        for(int i = 0;i<colors.length;i++){
-            System.out.println(colors[i]);
-        }
         //-------------------
         for(int i=0 ; i<matriz.length ; i++){//primero ver que no tenga espacios vacios
             for(int j=0 ; j<matriz.length ; j++){
@@ -94,46 +91,48 @@ public class Matriz {
     }
     
     public boolean contadorColorLado(int index,String [] color,String [][] matriz){
-        int contador = 0;
-        System.out.println("color: "+color[index]);
+        int contador = 0, contadorDeUnos = 0;
         
         
         for(int i=0 ; i<matriz.length ; i++){//primero ver que no tenga espacios vacios
             for(int j=0 ; j<matriz.length ; j++){
                 contador=0;
                 if(matriz[i][j].equals(color[index])){
-                //arriba
-                    System.out.println("----("+i+","+j+")----");
+                    //arriba
                     if((i-1) >= 0){
                         if(matriz[i-1][j].equals(color[index])){
                             contador++;
-                            System.out.println("arriba");
                         }
                     }
                     if((i+1) < matriz.length){//abajo
                         if(matriz[i+1][j].equals(color[index])){
                             contador++;
-                            System.out.println("abajo");
                         }
                     }
                     if((j-1) >= 0){//izquierda
                         if(matriz[i][j-1].equals(color[index])){
                             contador++;
-                            System.out.println("izq");
                         }
                     }
                     if((j+1) < matriz.length){//derecha
                         if(matriz[i][j+1].equals(color[index])){
                             contador++;
-                            System.out.println("derecha");
                         }
                     }
                     if(contador==0){
                     return false;
                     }
+                    if(contador==1){
+                        contadorDeUnos++;
+                    }
                 }
             }
         }
+        if(contadorDeUnos >= 3){
+            return false;
+        }
+        
+        
         return true;
     }
     
@@ -151,5 +150,15 @@ public class Matriz {
     public String [] getColores(){
         return colores;
     }
+    
+    public void imprimirMatriz(String [][] matriz){
+        for(int i=0;i<matriz.length;i++){
+            for(int j=0;j<matriz.length;j++){
+                System.out.print(matriz[i][j]);
+            }
+            System.out.println();
+        }
+    }
+    
     
 }

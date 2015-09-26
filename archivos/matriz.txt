@@ -2,10 +2,10 @@
 7
 vcnryap
 ---------
-v v v v v c c
-v c c c c c n
-v n n n n n n
-v n y r r r r
-v n y a a a a
-v n y p p p p
-v v v v v v p
+        v   c
+            n
+             
+    y r     r
+      a     a
+  n y        
+          v p
