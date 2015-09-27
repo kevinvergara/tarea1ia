@@ -306,52 +306,53 @@ void bfs(cubo cubos[ncubos],casilla matriz[filas][columnas]){
 	estado *pri=NULL,*ult=NULL,*aux_estado=NULL;
 	cubo *auxiliar=NULL;	
 	
-	while(k!=8){			//entra en un bucle que solo se interrumpe al encontrar solucion, o determinar que el juego no tiene solucion
-		final=comprobar_estado(cubos,matriz);
-		if(final==1){ 
-        largo_lista(pri); 
-        printf("\n\nNumero de estados generados : %d\n",contador);
-        printf("\n\n");
-        system("pause");
-        return;
-        }
+	while(k!=8){//entra en un bucle que solo se interrumpe al encontrar solucion, o determinar que el juego no tiene solucion
+            final=comprobar_estado(cubos,matriz);
+            if(final==1){ 
+                largo_lista(pri); 
+                printf("\n\nNumero de estados generados : %d\n",contador);
+                printf("\n\n");
+                system("pause");
+                return;
+            }
 		
-		if(pri==NULL && validar>0){
-			printf("\n\nNo hay solucion\n\n");
-			system("pause");
-			return;
-		}
-														//se sigue un procedimiento similar al dfs con respecto al respaldo del vector de cubos
-		auxiliar=(cubo*)malloc(sizeof(cubo)*ncubos);
-			
-		copiar_cubos(auxiliar,cubos);
+            if(pri==NULL && validar>0){
+                    printf("\n\nNo hay solucion\n\n");
+                    system("pause");
+                    return;
+            }
+                                                                                                            //se sigue un procedimiento similar al dfs con respecto al respaldo del vector de cubos
+            auxiliar=(cubo*)malloc(sizeof(cubo)*ncubos);
+
+            copiar_cubos(auxiliar,cubos);
+
+            printf("\n\nEstado:\n\n");
+
+            for(j=0;j<ncubos;j++){
+                    printf("Cubo %d : x=%d , y=%d\n",j+1,cubos[j].p.x,cubos[j].p.y);
+            }
+
+            imprime_paso(matriz,cubos);
+            largo_lista(pri);
+
 		
-		printf("\n\nEstado:\n\n");
-			
-		for(j=0;j<ncubos;j++){
-			printf("Cubo %d : x=%d , y=%d\n",j+1,cubos[j].p.x,cubos[j].p.y);
-		}
-		imprime_paso(matriz,cubos);
-		largo_lista(pri);
-		
-		
-		for(i=0;i<ncubos;i++){
-			k=mover_bloque(i,cubos,matriz);					//va guardando los estados hijos en la cola si es que es posible realizar un movimiento			
-			if(k==0)	k=empujar(i,cubos,matriz);							
-			if(k==1){
-            contador++;	
-            encolar(&pri,&ult,cubos);
-            }								
-			copiar_cubos(cubos,auxiliar);
-		}	
+            for(i=0;i<ncubos;i++){
+                    k=mover_bloque(i,cubos,matriz);//va guardando los estados hijos en la cola si es que es posible realizar un movimiento			
+                    if(k==0)	k=empujar(i,cubos,matriz);							
+                    if(k==1){
+                        contador++;	
+                        encolar(&pri,&ult,cubos);
+                    }								
+		copiar_cubos(cubos,auxiliar);
+            }	
 					
-		aux_estado=desencolar(&pri,&ult);   // recupera el siguiente estado almacenado para continuar la busqueda
+            aux_estado=desencolar(&pri,&ult);   //recupera el siguiente estado almacenado para continuar la busqueda
 		
-		for(i=0;i<ncubos;i++){
-			cubos[i]=aux_estado->cubos[i];		
-		}
-		printf("\n\n-----------------------\n");
-		validar++;			
+            for(i=0;i<ncubos;i++){
+                cubos[i]=aux_estado->cubos[i];		
+            }
+            printf("\n\n-----------------------\n");
+            validar++;			
 	}	
 }
 

@@ -1,11 +1,13 @@
 
 package paquete;
 
+import java.util.ArrayList;
+
 public class Nodo {
     private String [] colores;
     private int [] ultimaAnterior = new int [2];
     
-    private Nodo [] nodos;
+    private ArrayList nodos = new ArrayList();
     private String [][] matriz ;
     
     private int nivel;
@@ -15,15 +17,21 @@ public class Nodo {
         this.ultimaAnterior=ultimaPos.clone();
         this.matriz = matriz.clone();
         this.colores = colores.clone();
-        this.nivel = nivel + 1;
+        this.nivel = nivel;
+        
+        getColores();
     }
 
     public String[] getColores() {
         return colores;
     }
 
-    public Nodo getNodos(int index) {
-        return nodos [index];
+    public Nodo getNodo(int index) {
+        return (Nodo)nodos.get(index);
+    }
+
+    public void setNodos(Nodo nodo) {
+        nodos.add(nodo);
     }
 
     public String[][] getMatriz() {

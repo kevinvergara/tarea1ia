@@ -20,7 +20,7 @@ public class clasePrincipal {
         
         while(opc != 3){
             Matriz matrizInicial = new Matriz();     
-            Nodo raiz = new Nodo(matrizInicial.getColores(),vectorInicial,matrizInicial.cargarMatriz(),-1);
+            Nodo raiz = new Nodo(matrizInicial.getColores(),vectorInicial,matrizInicial.cargarMatriz(),0);
             
             //carga matriz inicial
             System.out.println("----menu----");
@@ -40,16 +40,21 @@ public class clasePrincipal {
     }
     
     public static boolean bfs(Nodo nodo){
-        Matriz matrizClase = new Matriz();
+        int cont=0;
         
-        if(matrizClase.matrizSolucion(nodo.getMatriz(), nodo.getColores())){
-            return true;
+        while(cont != (9)){
+        
+            Matriz matrizClase = new Matriz();
+
+            if(matrizClase.matrizSolucion(nodo.getMatriz(), nodo.getColores())){
+                return true;
+            }
+            matrizClase.imprimirMatriz(nodo.getMatriz());
         }
         
-        matrizClase.imprimirMatriz(nodo.getMatriz());
         
         
-       return true;
+       return false;
     }
     
 }
