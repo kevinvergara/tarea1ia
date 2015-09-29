@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Nodo {
     private String [] colores;
-    private int [] ultimaAnterior = new int [2];
+    private int [] posicion = new int [2];
     
     private ArrayList nodos = new ArrayList();
     private String [][] matriz ;
@@ -13,8 +13,8 @@ public class Nodo {
     private int nivel;
     
 
-    public Nodo(String [] colores, int [] ultimaPos,String [][] matriz, int nivel) {
-        this.ultimaAnterior=ultimaPos.clone();
+    public Nodo(String [] colores, int [] posicion,String [][] matriz, int nivel) {
+        this.posicion=posicion.clone();
         this.matriz = matriz.clone();
         this.colores = colores.clone();
         this.nivel = nivel;
@@ -41,5 +41,10 @@ public class Nodo {
     public int getNivel() {
         return nivel;
     }
+
+    public int[] getUltimaAnterior() {
+        return posicion;
+    }
+    
     
 }

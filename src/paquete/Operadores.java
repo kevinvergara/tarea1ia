@@ -18,7 +18,7 @@ public class Operadores {
     }
     public int [] actualizarPosicion(int dimension,int [] posicion){
         if(posicion[0] < dimension){
-        
+            
         
         
         }
