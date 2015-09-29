@@ -15,4 +15,12 @@ public class Cola {
     public Nodo desencolar(){
         return (Nodo)cola.removeLast();
     }
+    
+    public boolean vacio(){
+        if (cola.size() == 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

@@ -39,18 +39,40 @@ public class clasePrincipal {
 
     }
     
-    public static boolean bfs(Nodo nodo){
+    public static boolean bfs(Nodo raiz){
         int cont=0;
+        Matriz matrizClase = new Matriz();
+        /*while(cont != (9)){
         
-        while(cont != (9)){
-        
-            Matriz matrizClase = new Matriz();
+            
 
             if(matrizClase.matrizSolucion(nodo.getMatriz(), nodo.getColores())){
                 return true;
             }
             matrizClase.imprimirMatriz(nodo.getMatriz());
+        }*/
+        
+        Cola cola= new Cola();
+        
+        Nodo T = null;
+        System.out.print ("El recorrido en Anchura es: ");
+        
+        if(raiz != null){
+            cola.encolar(raiz);
+            
+            while(!(cola.vacio())){
+                T = cola.desencolar();
+                
+                matrizClase.imprimirMatriz(T.getMatriz());
+               
+                if (T.Hizq != null)
+                 cola.InsertaFinal (T.Hizq);
+                if (T.Hder != null)
+                 cola.InsertaFinal (T.Hder);
+            }
         }
+        System.out.println();
+ }
         
         
         
