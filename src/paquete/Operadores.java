@@ -17,12 +17,13 @@ public class Operadores {
         return matriz;
     }
     public int [] actualizarPosicion(int dimension,int [] posicion){
-        if(posicion[0] < dimension){
-            
-        
-        
+        if(posicion[0] == (dimension-1) && posicion[1] == (dimension-1) ){//ultima posicion
+            return null;
         }
-        
+        //------
+        if(posicion[1] != (dimension-1)){//
+            posicion[1]++;
+        }
         
         
         return null;

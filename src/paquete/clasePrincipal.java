@@ -30,8 +30,8 @@ public class clasePrincipal {
             opc = sc.nextInt();
             
             if(opc == 1){
-                //bfs(raiz);//anchura
-                matrizInicial.imprimirMatriz(matrizInicial.cargarMatriz());
+                //anchura
+                matrizInicial.imprimirMatriz(bfs(raiz));
             }else if(opc == 2){
             
             }
@@ -40,18 +40,9 @@ public class clasePrincipal {
 
     }
     
-    public static boolean bfs(Nodo raiz){
+    public static String [][] bfs(Nodo raiz){
         int cont=0;
         Matriz matrizClase = new Matriz();
-        /*while(cont != (9)){
-        
-            
-
-            if(matrizClase.matrizSolucion(nodo.getMatriz(), nodo.getColores())){
-                return true;
-            }
-            matrizClase.imprimirMatriz(nodo.getMatriz());
-        }*/
         Operadores operadores = new Operadores();
         Cola cola= new Cola();
         
@@ -67,7 +58,7 @@ public class clasePrincipal {
                 if (matrizClase.matrizSolucion(nodoActual.getMatriz(), nodoActual.getColores())){
                     System.out.println("\nnivel: "+nodoActual.getNivel()+"\nMatriz Solucion");
                     matrizClase.imprimirMatriz(nodoActual.getMatriz());
-                    return true;
+                    return nodoActual.getMatriz();//retornar matriz solucion
                 }
                 
                 
@@ -84,18 +75,19 @@ public class clasePrincipal {
                     }
 
                 }//fin if actualizarPos
+                
+                for(int i=0 ; i<nodoActual.getColores().length ; i++){
+                    cola.encolar(nodoActual.getNodo(i));
+                }//listo
+                
                 /*if (T.Hizq != null)
                  cola.InsertaFinal (T.Hizq);
                 if (T.Hder != null)
                  cola.InsertaFinal (T.Hder);*/
             }
         }
-        System.out.println();
- 
-        
-        
-        
-       return false;
+        System.out.println(); 
+        return null;
     }
     
 }
