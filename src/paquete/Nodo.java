@@ -13,17 +13,16 @@ public class Nodo {
     private int nivel;
     
 
-    public Nodo(String [] colores, int [] posicion,String [][] matriz, int nivel) {
+    public Nodo(String [][] matriz,String [] colores, int [] posicion, int nivel) {
         this.posicion=posicion.clone();
         this.matriz = matriz.clone();
         this.colores = colores.clone();
         this.nivel = nivel;
         
-        getColores();
     }
 
     public String[] getColores() {
-        return colores;
+        return this.colores;
     }
 
     public Nodo getNodo(int index) {
