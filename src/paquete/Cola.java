@@ -9,11 +9,11 @@ public class Cola {
     }
     
     public void encolar(Nodo a){
-        cola.addFirst(a);
+        cola.addLast(a);
     }
     
     public Nodo desencolar(){
-        return (Nodo)cola.removeLast();
+        return (Nodo)cola.removeFirst();
     }
     
     public boolean vacio(){
@@ -22,5 +22,9 @@ public class Cola {
         }else{
             return false;
         }
+    }
+    
+    public int size(){
+        return cola.size();
     }
 }

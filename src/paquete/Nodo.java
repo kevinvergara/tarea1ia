@@ -1,13 +1,13 @@
 
 package paquete;
 
-import java.util.ArrayList;
+import java.util.Vector;
 
 public class Nodo {
     private String [] colores;
     private int [] posicion = new int [2];
     
-    private ArrayList nodos = new ArrayList();
+    private Vector nodos = new Vector();
     private String [][] matriz ;
     
     private int nivel;
@@ -26,13 +26,17 @@ public class Nodo {
     public String[] getColores() {
         return this.colores;
     }
-
+    
+    public int size(){
+        return nodos.size();
+    }
+    
     public Nodo getNodo(int index) {
-        return (Nodo)nodos.get(index);
+        return (Nodo)this.nodos.get(index);
     }
 
     public void setNodos(Nodo nodo) {
-        nodos.add(nodo);
+        this.nodos.addElement(nodo);
     }
 
     public String[][] getMatriz() {
