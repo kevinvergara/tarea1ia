@@ -11,6 +11,10 @@ public class Nodo {
     private String [][] matriz ;
     
     private int nivel;
+
+    public Nodo() {
+    }
+    
     
 
     public Nodo(String [][] matriz,String [] colores, int [] posicion, int nivel) {
