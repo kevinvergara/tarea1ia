@@ -1,11 +1,7 @@
-7
-7
-vcnryap
+3
+3
+vcn
 ---------
-        v   c
-            n
-             
-    y r     r
-      a     a
-  n y        
-          v p
+v   v
+c   c
+n   n

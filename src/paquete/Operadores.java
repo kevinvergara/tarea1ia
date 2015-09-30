@@ -16,25 +16,23 @@ public class Operadores {
         }
         return matriz;
     }
-    public int [] actualizarPosicion(int dimension,int [] posicion){
-        if(posicion[0] == (dimension-1) && posicion[1] == (dimension-1) ){//ultima posicion
-            return null;
-        }
-        //------
-        if(posicion[1] != (dimension-1)){//
-            posicion[1]++;
-            System.out.println("pos: ("+posicion[0]+" , "+posicion[1]+")");
-            return posicion;
-        }
-        //-----
-        if(posicion[1] == (dimension-1)){
-            posicion[0]++;
-            posicion[1]=0;
-            System.out.println("pos: ("+posicion[0]+" , "+posicion[1]+")");
-            return posicion;
+    public int [] actualizarPosicion(int dimension,int nivel){
+        int cont=0;
+        int [] vector = new int [2];
+        
+        if((dimension*dimension) == nivel) return null;
+        
+        for(int i=0;i<dimension;i++){
+            for(int j=0;j<dimension;j++){
+                cont++;
+                if(dimension == cont){
+                    vector[0]=i;
+                    vector[1]=j;
+                }
+            }
         }
         
-        return null;
+        return vector;
     }
     public boolean disponibilidad(String [][] matriz, int [] posicion){
         for(int i=0;i<matriz.length;i++){

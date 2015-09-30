@@ -14,7 +14,9 @@ public class Nodo {
     
 
     public Nodo(String [][] matriz,String [] colores, int [] posicion, int nivel) {
-        this.posicion=posicion.clone();
+        if(posicion != null){
+            this.posicion=posicion.clone();
+        }
         this.matriz = matriz.clone();
         this.colores = colores.clone();
         this.nivel = nivel;

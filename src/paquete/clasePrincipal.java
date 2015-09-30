@@ -13,15 +13,11 @@ public class clasePrincipal {
         Scanner sc = new Scanner(System.in);
         int opc=0;
         //-------------
-        int [] vectorInicial = new int[2];
-        vectorInicial[0]=0;
-        vectorInicial[0]=0;
-        //-------------
         
         while(opc != 3){
             Matriz matrizInicial = new Matriz();
             
-            Nodo raiz = new Nodo(matrizInicial.cargarMatriz(),matrizInicial.getColores(),vectorInicial,0);
+            Nodo raiz = new Nodo(matrizInicial.cargarMatriz(),matrizInicial.getColores(),null,0);
             //carga matriz inicial
             System.out.println("----menu----");
             System.out.println("1.-bfs (anchura)");
@@ -33,7 +29,14 @@ public class clasePrincipal {
                 //anchura
                 matrizInicial.imprimirMatriz(bfs(raiz));
             }else if(opc == 2){
+                int con=0;
                 System.out.println("opcion en proceso .|.");
+                for(int i=0;i<raiz.getMatriz().length;i++){
+                    for(int j=0;j<raiz.getMatriz().length;j++){
+                        con++;
+                    }
+                }
+                System.out.println(con);
             }
             
         }
@@ -41,7 +44,6 @@ public class clasePrincipal {
     }
     
     public static String [][] bfs(Nodo raiz){
-        
         Matriz matrizClase = new Matriz();
         Operadores operadores = new Operadores();
         Cola cola= new Cola();
@@ -52,6 +54,8 @@ public class clasePrincipal {
         
         if(raiz != null){
             cola.encolar(raiz);
+            System.out.println("\nnivel: "+(raiz.getNivel())+"\n");
+            matrizClase.imprimirMatriz(raiz.getMatriz());
             
             while(!(cola.vacio())){
                 nodoActual = cola.desencolar();
@@ -63,19 +67,24 @@ public class clasePrincipal {
                 
                 
                 
-                System.out.println("\nnivel: "+nodoActual.getNivel()+"\n");
+                System.out.println("\nnivel: "+(nodoActual.getNivel())+"\n");
                 matrizClase.imprimirMatriz(nodoActual.getMatriz());
-               
-                if(operadores.actualizarPosicion(nodoActual.getMatriz().length,nodoActual.getUltimaAnterior()) != null){
-                    if(operadores.disponibilidad(nodoActual.getMatriz(), operadores.actualizarPosicion(nodoActual.getMatriz().length,nodoActual.getUltimaAnterior()))){
+                int [] vectorAux = null;
+                vectorAux = operadores.actualizarPosicion(nodoActual.getMatriz().length,(nodoActual.getNivel()+1));
+                
+                if(vectorAux != null){
+                    if(operadores.disponibilidad(nodoActual.getMatriz(), vectorAux)){
                         for(int i=0 ; i<nodoActual.getColores().length ; i++){
-                            String [][] matrizAux = operadores.asignarColor(nodoActual.getMatriz(), operadores.actualizarPosicion(nodoActual.getMatriz().length,nodoActual.getUltimaAnterior()), nodoActual.getColores()[i]);
-                            Nodo nodoAux = new Nodo(matrizAux,nodoActual.getColores(),operadores.actualizarPosicion(nodoActual.getMatriz().length,nodoActual.getUltimaAnterior()),(nodoActual.getNivel()+1)); 
+                            System.out.println("color: "+nodoActual.getColores()[i]);
+                            String [][] matrizAux=null;
+                            matrizAux = operadores.asignarColor(nodoActual.getMatriz(), vectorAux, nodoActual.getColores()[i]);
+                            Nodo nodoAux = new Nodo(matrizAux,nodoActual.getColores(),vectorAux,(nodoActual.getNivel()+1)); 
                             nodoActual.setNodos(nodoAux);
+                            
                         }
-
-                        for(int i=0 ; i<nodoActual.getColores().length ; i++){
-                            cola.encolar(nodoActual.getNodo(i));
+                        
+                        for(int i=0;i<nodoActual.getColores().length;i++){
+                            cola.encolar(nodoActual.getNodo(i));//encolar
                         }
                     }
                 }//listo
