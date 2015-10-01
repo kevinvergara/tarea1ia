@@ -54,6 +54,22 @@ public class Nodo {
     public int[] getUltimaAnterior() {
         return posicion;
     }
+
+    public void setColores(String[] colores) {
+        this.colores = colores;
+    }
+
+    public void setPosicion(int[] posicion) {
+        this.posicion = posicion;
+    }
+
+    public void setMatriz(String[][] matriz) {
+        this.matriz = matriz;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
     
     
 }
