@@ -15,7 +15,7 @@ public class Matriz {
     
     public String [][] cargarMatriz() throws FileNotFoundException, IOException{
         String cadena;
-        String archivo = "C:\\Users\\kevin\\Documents\\NetBeansProjects\\tarea1ia\\archivos\\matriz.txt";
+        String archivo = "/home/kvergara/NetBeansProjects/tarea 1 IA/archivos/matriz.txt";
         int i=0;
         
         
@@ -166,5 +166,18 @@ public class Matriz {
         }
     }
     
+    public String [][] clonarMatriz(String [][] matriz){
+        if(matriz==null) return null;
+        
+        String [][] matrizNueva = new String [matriz.length][matriz.length];
+        
+        for(int i=0;i<matriz.length;i++){
+            for(int j=0;j<matriz.length;j++){
+                matrizNueva[i][j]=matriz[i][j];
+            }
+        }
+        
+        return matrizNueva;
+    }
     
 }

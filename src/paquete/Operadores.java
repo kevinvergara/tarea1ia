@@ -22,23 +22,21 @@ public class Operadores {
         vector[1]=-1;
         
         if((matriz.length*matriz.length) == nivel){ 
-            //System.out.println("nulllllll por dim");
+            System.out.println("nulllllll por dim");
             return null;
         }
         for(int i=0;i<matriz.length;i++){
             for(int j=0;j<matriz.length;j++){
-                if(matriz[i][j].equals(" ")){
-                    cont++;
-                    if(matriz.length == cont){
-                        vector[0]=i;
-                        vector[1]=j;
-                    }
+                cont++;
+                if(nivel == cont){
+                    vector[0]=i;
+                    vector[1]=j;
                 }
             }
         }
         
         if(vector[0]==-1 & vector[1]==-1){ 
-            //System.out.println("nulllllll");
+            System.out.println("nulllllll");
             return null;
         }
         return vector;
@@ -56,5 +54,22 @@ public class Operadores {
             }
         }
         return false;
+    }
+    
+    public String [][] matrizModificada(String [][] matri,int [] vector,String color){
+        String [][] matriAux = new String [matri.length][matri.length];
+        
+        for(int i=0;i<matri.length;i++){
+            for(int j=0;j<matri.length;j++){
+                
+                if(vector[0]==i && vector[1]==j){
+                    matriAux[i][j]=color;
+                }else{
+                    matriAux[i][j]=matri[i][j];
+                }
+            }
+        }
+        
+        return matriAux;
     }
 }
