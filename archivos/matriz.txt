@@ -2,8 +2,8 @@
 4
 vayr
 ---------
-r r   r v
-r y a v v
-         
-  y y y a
-    r y y
+  r   r v
+  y a v  
+  y     a
+  y   y a
+r r r y y

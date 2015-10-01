@@ -1,21 +1,17 @@
 package paquete;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 
 public class BFS {
-    private Cola cola = new Cola();
+    private final Cola cola = new Cola();
     public BFS() {
     }
     
     public String [][] bfs(Nodo raiz) throws IOException{
         Matriz matrizClase = new Matriz();
         Operadores operadores = new Operadores();
-        Scanner sc = new Scanner(System.in);
-                    
-        
-        int i=0,contador=1;
+        int contador=1;
         
         System.out.print ("El recorrido en Anchura es: \n");
         
@@ -45,7 +41,7 @@ public class BFS {
                 if(vectorAux != null){
                     if(operadores.disponibilidad(nodoActual.getMatriz(), vectorAux)){
                         //System.out.println("wepa: ");
-                        for(i=0;i<nodoActual.getColores().length;i++){
+                        for(int i=0;i<nodoActual.getColores().length;i++){
 
                             cola.encolar(new Nodo(operadores.matrizModificada(nodoActual.getMatriz(), vectorAux, nodoActual.getColores()[i]),nodoActual.getColores(),vectorAux,nodoActual.getNivel()+1)); 
 

@@ -20,9 +20,9 @@ public class clasePrincipal {
             Nodo raiz = new Nodo(matrizInicial.cargarMatriz(),matrizInicial.getColores(),null,1);
             //carga matriz inicial
             System.out.println("----menu----");
-            System.out.println("1.-bfs (anchura)");
-            System.out.println("2.-dfs (profundidad)");
-            System.out.println("3.-Salir");
+            System.out.println("1.-BFS (anchura)");
+            System.out.println("2.-DFS (profundidad)");
+            System.out.println("3.-SALIR");
             opc = sc.nextInt();
             
             if(opc == 1){
@@ -30,8 +30,8 @@ public class clasePrincipal {
                 BFS anchura = new BFS();
                 matrizInicial.imprimirMatriz(anchura.bfs(raiz));
             }else if(opc == 2){
-                int con=0;
-                System.out.println("opcion en proceso .|.");
+                DFS profundidad = new DFS();
+                matrizInicial.imprimirMatriz(profundidad.dfs(raiz));
             }
             
         }
