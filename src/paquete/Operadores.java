@@ -29,8 +29,7 @@ public class Operadores {
             }
         }
         
-        if(vector[0]==-1 & vector[1]==-1){ 
-            System.out.println("nulllllll");
+        if(vector[0]==-1 & vector[1]==-1){
             return null;
         }
         return vector;

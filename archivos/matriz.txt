@@ -1,8 +1,9 @@
+5
 4
-4
-vcnr
+vayr
 ---------
-v     v
-c      
-n   n c
-r     r        
+r r   r v
+r y a v v
+         
+  y y y a
+    r y y
