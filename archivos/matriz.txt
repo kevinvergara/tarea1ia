@@ -1,7 +1,8 @@
-3
-3
-vcn
+4
+4
+vcnr
 ---------
-v   v
-c   c
-n   n
+v     v
+c      
+n   n c
+r     r        

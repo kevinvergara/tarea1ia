@@ -24,19 +24,28 @@ public class BFS {
             cola.encolar(raiz);            
             while(!cola.vacia()){
                 nodoActual = (Nodo)cola.frente();
+                
+                //ver si es solucion
+                if(matrizClase.matrizSolucion(nodoActual.getMatriz(), nodoActual.getColores())){
+                    System.out.println("solucion encontrada en el nivel: "+nodoActual.getNivel()+"\n");
+                    
+                    return nodoActual.getMatriz();
+                }
+                
+                
                 System.out.println("\n");
                 System.out.println("nivel: "+nodoActual.getNivel()+"\n");
-                matrizClase.imprimirMatriz(nodoActual.getMatriz());
+                //matrizClase.imprimirMatriz(nodoActual.getMatriz());
                 System.out.println("\n");
                 cola.desencolar();
                 
                 int [] vectorAux = null;
-                vectorAux = operadores.actualizarPosicion(nodoActual.getMatriz(),(nodoActual.getNivel()+1));
+                vectorAux = operadores.actualizarPosicion(nodoActual.getMatriz());
                 
                 if(vectorAux != null){
                     
                     if(operadores.disponibilidad(nodoActual.getMatriz(), vectorAux)){
-                        System.out.println("wepa: ");
+                        //System.out.println("wepa: ");
                         for(i=0;i<nodoActual.getColores().length;i++){
 
                             cola.encolar(new Nodo(operadores.matrizModificada(nodoActual.getMatriz(), vectorAux, nodoActual.getColores()[i]),nodoActual.getColores(),vectorAux,nodoActual.getNivel()+1)); 

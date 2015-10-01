@@ -15,20 +15,14 @@ public class Operadores {
         }
         return matriz;
     }
-    public int [] actualizarPosicion(String [][] matriz,int nivel){
-        int cont=0;
+    public int [] actualizarPosicion(String [][] matriz){
         int [] vector = new int [2];
         vector[0]=-1;
         vector[1]=-1;
         
-        if((matriz.length*matriz.length) == nivel){ 
-            System.out.println("nulllllll por dim");
-            return null;
-        }
         for(int i=0;i<matriz.length;i++){
             for(int j=0;j<matriz.length;j++){
-                cont++;
-                if(nivel == cont){
+                if(matriz[i][j].equals(" ")){
                     vector[0]=i;
                     vector[1]=j;
                 }
