@@ -5,17 +5,7 @@ public class Operadores {
     public Operadores(){
     }
     
-    public String [][] asignarColor(String [][] matriz, int [] posicion, String color){
-        for(int i=0;i<matriz.length;i++){
-            for(int j=0;j<matriz.length;j++){
-                if(posicion[0]==i && posicion[1]==j){
-                    matriz[i][j] = color;    
-                }
-            }
-        }
-        return matriz;
-    }
-    public int [] actualizarPosicion(String [][] matriz){
+    public int [] actualizarPosicion(String [][] matriz){// se usa
         int [] vector = new int [2];
         vector[0]=-1;
         vector[1]=-1;
@@ -34,7 +24,7 @@ public class Operadores {
         }
         return vector;
     }
-    public boolean disponibilidad(String [][] matriz, int [] posicion){
+    public boolean disponibilidad(String [][] matriz, int [] posicion){//se usa
         for(int i=0;i<matriz.length;i++){
             for(int j=0;j<matriz.length;j++){
                 if(posicion[0]==i && posicion[1]==j){
@@ -49,7 +39,7 @@ public class Operadores {
         return false;
     }
     
-    public String [][] matrizModificada(String [][] matri,int [] vector,String color){
+    public String [][] matrizModificada(String [][] matri,int [] vector,String color){// se usa
         String [][] matriAux = new String [matri.length][matri.length];
         
         for(int i=0;i<matri.length;i++){
