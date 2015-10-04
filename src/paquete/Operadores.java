@@ -24,21 +24,7 @@ public class Operadores {
         }
         return vector;
     }
-    public boolean disponibilidad(String [][] matriz, int [] posicion){//se usa
-        for(int i=0;i<matriz.length;i++){
-            for(int j=0;j<matriz.length;j++){
-                if(posicion[0]==i && posicion[1]==j){
-                    if(matriz[i][j].equals(" ")){
-                        return true;
-                    }else{
-                        return false;
-                    }
-                }
-            }
-        }
-        return false;
-    }
-    
+
     public String [][] matrizModificada(String [][] matri,int [] vector,String color){// se usa
         String [][] matriAux = new String [matri.length][matri.length];
         
