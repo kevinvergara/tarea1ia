@@ -39,13 +39,10 @@ public class BFS {
                     System.out.println("-----------------------------");
                 }
                 if(vectorAux != null){
-                    if(operadores.disponibilidad(nodoActual.getMatriz(), vectorAux)){
-                        //System.out.println("wepa: ");
-                        for(int i=0;i<nodoActual.getColores().length;i++){
+                    for(int i=0;i<nodoActual.getColores().length;i++){
 
-                            cola.encolar(new Nodo(operadores.matrizModificada(nodoActual.getMatriz(), vectorAux, nodoActual.getColores()[i]),nodoActual.getColores(),vectorAux,nodoActual.getNivel()+1)); 
+                        cola.encolar(new Nodo(operadores.matrizModificada(nodoActual.getMatriz(), vectorAux, nodoActual.getColores()[i]),nodoActual.getColores(),vectorAux,nodoActual.getNivel()+1)); 
 
-                        }
                     }
                 }//listo
                 contador++;
