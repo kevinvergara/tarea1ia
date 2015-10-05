@@ -30,17 +30,17 @@ public class BFS {
                 }
                 int [] vectorAux = null;
                 vectorAux = operadores.actualizarPosicion(nodoActual.getMatriz());
-                
-                if(contador<21){
-                    System.out.println("-----------------------------");
-                    System.out.println("nivel: "+nodoActual.getNivel());
-                    System.out.println("estado: "+contador);
-                    matrizClase.imprimirMatriz(nodoActual.getMatriz());
-                    System.out.println("-----------------------------");
-                }
+            
+                System.out.println("-----------------------------");
+                System.out.println("nivel: "+nodoActual.getNivel());
+                System.out.println("estado: "+contador);
+                matrizClase.imprimirMatriz(nodoActual.getMatriz());
+                System.out.println("-----------------------------");
+
                 if(vectorAux != null){
                     for(int i=0;i<nodoActual.getColores().length;i++){
-
+                        
+                        nodoActual.setNodos(new Nodo(operadores.matrizModificada(nodoActual.getMatriz(), vectorAux, nodoActual.getColores()[i]),nodoActual.getColores(),vectorAux,nodoActual.getNivel()+1));
                         cola.encolar(new Nodo(operadores.matrizModificada(nodoActual.getMatriz(), vectorAux, nodoActual.getColores()[i]),nodoActual.getColores(),vectorAux,nodoActual.getNivel()+1)); 
 
                     }
